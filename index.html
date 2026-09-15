@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Utility Hub — a collection of fast, useful browser-based tools.">
+  <title>Utility Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Utility Hub home">
+      <span class="brand-mark">U</span>
+      <span>Utility Hub</span>
+    </a>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle theme">☼</button>
+      <button class="icon-btn" id="favoritesTop" type="button" title="Show favorites" aria-label="Show favorites">☆</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">EVERYDAY TOOLS, ONE PLACE</span>
+        <h1>Simple tools for<br><span>everyday problems.</span></h1>
+        <p>Convert, calculate, format and generate — quickly, privately, and right in your browser.</p>
+      </div>
+      <div class="hero-stat">
+        <strong id="toolCount">20+</strong>
+        <span>useful tools</span>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Utility navigation">
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search utilities..." autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <div class="categories" id="categories">
+        <button class="category active" data-category="all">All</button>
+        <button class="category" data-category="Converters">Converters</button>
+        <button class="category" data-category="Calculators">Calculators</button>
+        <button class="category" data-category="Text">Text</button>
+        <button class="category" data-category="Developer">Developer</button>
+        <button class="category" data-category="Date & Time">Date & Time</button>
+        <button class="category" data-category="Generators">Generators</button>
+      </div>
+    </section>
+
+    <section class="content-layout">
+      <aside class="sidebar">
+        <div class="side-title">YOUR HUB</div>
+        <button class="side-link active" data-view="all"><span>▦</span> All tools <b id="allCount">20</b></button>
+        <button class="side-link" data-view="favorites"><span>☆</span> Favorites <b id="favoriteCount">0</b></button>
+        <button class="side-link" data-view="recent"><span>◷</span> Recently used <b id="recentCount">0</b></button>
+
+        <div class="side-divider"></div>
+        <div class="side-title">CATEGORIES</div>
+        <button class="side-link mini" data-category-link="Converters">↔ Converters</button>
+        <button class="side-link mini" data-category-link="Calculators">＋ Calculators</button>
+        <button class="side-link mini" data-category-link="Developer">⌘ Developer</button>
+        <button class="side-link mini" data-category-link="Text">T Text</button>
+        <button class="side-link mini" data-category-link="Generators">✦ Generators</button>
+      </aside>
+
+      <section class="tools-area">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker" id="sectionKicker">ALL UTILITIES</span>
+            <h2 id="sectionTitle">Choose a tool</h2>
+          </div>
+          <span class="result-count" id="resultCount">20 tools</span>
+        </div>
+        <div class="tool-grid" id="toolGrid"></div>
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-icon">⌕</div>
+          <h3>No utilities found</h3>
+          <p>Try a different search or category.</p>
+          <button class="outline-btn" id="clearSearch" type="button">Clear search</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="toolModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <span class="modal-category" id="modalCategory">UTILITY</span>
+          <h2 id="modalTitle">Tool</h2>
+          <p id="modalDescription">Description</p>
+        </div>
+        <div class="modal-actions">
+          <button class="icon-btn" id="modalFavorite" type="button" title="Favorite">☆</button>
+          <button class="close-btn" data-close-modal type="button" aria-label="Close">×</button>
+        </div>
+      </div>
+      <div class="tool-workspace" id="toolWorkspace"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <footer>Utility Hub <span>•</span> Fast browser tools with no account required</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
